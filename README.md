@@ -1,6 +1,9 @@
 # ini
 ## Backgroud
 I believe that many scenarios still need "ini" configuration files, So I prepared this.
+## Bright spot
+* easy to use
+* sufficient functions
 ## Support
 * C and C++
 * global and local
