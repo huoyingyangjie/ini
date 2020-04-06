@@ -6,8 +6,6 @@ I believe that many scenarios still need "ini" configuration files, So I prepare
 * use "//" as comments at the beginning of line 
 * multiple sections
 * section name can carry space on both sides
-## Interface
-
 ## How to use
 
 ## Notes
