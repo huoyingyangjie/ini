@@ -2,6 +2,7 @@
 ## Backgroud
 I believe that many scenarios still need "ini" configuration files, So I prepared this.
 ## Support
+* C and C++
 * global and local
 * use "//" as comments at the beginning of line 
 * multiple sections
