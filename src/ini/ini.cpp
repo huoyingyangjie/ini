@@ -186,8 +186,13 @@ ini_t ini_create(const char * file)
         return NULL;
     }
     bzero(buf, sz);
-    if(fread(buf,1,sz,fp)!=(size_t )sz)
-        goto failed;
+    char c;
+    size_t cursor=0;
+    while ((c = getc(fp)) != EOF)
+    {
+        buf[cursor]=c;
+        ++cursor;
+    }     
     fclose(fp);
     str=buf;
     free(buf);
