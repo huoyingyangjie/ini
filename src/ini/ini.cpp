@@ -163,6 +163,8 @@ ini_t ini_create(const char * file)
     ini_ctx_t * ini_ctx;
     long sz;
     char * buf;
+    char c;
+    size_t cursor=0;
     string str;
     errno_type=0;
     ini_ctx=new ini_ctx_t;
@@ -186,8 +188,6 @@ ini_t ini_create(const char * file)
         return NULL;
     }
     bzero(buf, sz);
-    char c;
-    size_t cursor=0;
     while ((c = getc(fp)) != EOF)
     {
         buf[cursor]=c;
