@@ -104,7 +104,11 @@ static int str_parse(ini_ctx_t * ini_ctx, string &str)
         tmp=*iter;
         tmp = trim(tmp);
         if(tmp.length() < 2)
-            continue;
+        {
+            errno_type = 1;
+            errno_value = INI_ERR_ILLEGAL_CHARACTER;
+            return -1;
+        }
         if(tmp[0]=='/'&&tmp[1]=='/')
             continue;
         if(tmp[0]=='['&&tmp[tmp.length()-1]==']')
