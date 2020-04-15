@@ -14,6 +14,7 @@ typedef void * ini_t;
 enum ini_error_t {
     INI_ERR_REDUNDANT_KEY = 1,
     INI_ERR_SECTION_NAME_EMPTY = 2,
+    INI_ERR_ILLEGAL_CHARACTER = 3,
 };
 
 int ini_errno_type();
