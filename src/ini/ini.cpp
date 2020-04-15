@@ -106,7 +106,7 @@ static int str_parse(ini_ctx_t * ini_ctx, string &str)
         if(tmp.length() < 2)
         {
             errno_type = 1;
-            errno_value = INI_ERR_ILLEGAL_CHARACTER;
+            errno_value = INI_ERR_TOO_FEW_CHARACTERS;
             return -1;
         }
         if(tmp[0]=='/'&&tmp[1]=='/')
@@ -128,7 +128,17 @@ static int str_parse(ini_ctx_t * ini_ctx, string &str)
             continue;
         }
         if(tmp[0]=='=')
-            continue;
+        {
+            errno_type = 1;
+            errno_value = INI_ERR_ILLEGAL_BEGINNING_OF_LINE;
+            return -1;
+        }
+        if(tmp.find("=")==string::npos)
+        {
+            errno_type = 1;
+            errno_value = INI_ERR_NO_SPLIT_CHARACTER;
+            return -1;
+        }
         if(section==NULL)
         {
             section=new section_t;
