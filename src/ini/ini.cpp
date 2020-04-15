@@ -103,6 +103,8 @@ static int str_parse(ini_ctx_t * ini_ctx, string &str)
         DBG("line=%s",(*iter).c_str());
         tmp=*iter;
         tmp = trim(tmp);
+        if(tmp.length() == 0)
+            continue;
         if(tmp.length() < 2)
         {
             errno_type = 1;
