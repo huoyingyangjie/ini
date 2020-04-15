@@ -162,7 +162,7 @@ ini_t ini_create(const char * file)
 {
     ini_ctx_t * ini_ctx;
     long sz;
-    char * buf;
+    char * buf=NULL;
     char c;
     size_t cursor=0;
     string str;
