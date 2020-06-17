@@ -1,9 +1,8 @@
 //
 // Created by yangjiegogogo@gmail.com on 3/29/20.
 //
-#ifndef NDEBUG
+
 #include "utils/debug.h"
-#endif
 #include "ini/ini.h"
 #include <vector>
 #include <string>
