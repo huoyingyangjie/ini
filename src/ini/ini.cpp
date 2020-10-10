@@ -170,7 +170,7 @@ ini_t ini_create(const char * file)
     ini_ctx->global=NULL;
     FILE * fp=fopen(file, "r");
     if(fp==NULL)
-        return NULL;
+        goto failed;
     if(fseek(fp,0L, SEEK_END)!=0)
         goto failed;
     sz=ftell(fp);
@@ -181,11 +181,7 @@ ini_t ini_create(const char * file)
         return ini_ctx;
     buf= (char*)malloc(sz);
     if(buf==NULL)
-    {
-        fclose(fp);
-        free(ini_ctx);
-        return NULL;
-    }
+        goto failed;
     bzero(buf, sz);
     while ((c = getc(fp)) != EOF)
     {
@@ -193,7 +189,7 @@ ini_t ini_create(const char * file)
         ++cursor;
     }     
     fclose(fp);
-    str=buf;
+    str.assign(buf, cursor);
     free(buf);
     if(str_parse(ini_ctx,str)!=0)
     {
