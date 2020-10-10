@@ -198,9 +198,12 @@ ini_t ini_create(const char * file)
     }
     return ini_ctx;
     failed:
-    fclose(fp);
-    free(buf);
-    free(ini_ctx);
+    if(fp!=NULL)
+        fclose(fp);
+    if(buf!=NULL)
+        free(buf);
+    if(ini_ctx!=NULL)
+        free(ini_ctx);
     return NULL;
 
 }
