@@ -78,6 +78,8 @@ include_directories(include)
 include_directories(module/utils/include)
 aux_source_directory(src/ini INI_SRC)
 add_library(ini STATIC ${INI_SRC})
+add_library(ini_share SHARED ${INI_SRC})
+set_target_properties(ini_share PROPERTIES OUTPUT_NAME ini)
 target_link_libraries(ini utils)
 
 include_directories(include)
